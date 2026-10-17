@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Takeaway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/app/styles.css?v=20" />
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">Takeaway</div>
+    <div class="top-actions">
+      <div class="scenarios" id="scenarios" role="tablist">
+        <button type="button" class="scenario active" data-scenario="bike">Bike</button>
+        <button type="button" class="scenario" data-scenario="drive">Drive</button>
+        <button type="button" class="scenario" data-scenario="highway">Highway</button>
+      </div>
+      <div class="menu-wrap">
+        <button type="button" class="menu-btn" id="menuBtn" aria-haspopup="listbox" aria-expanded="false" aria-controls="menuPanel" title="Lessons">
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+        <div class="menu-panel" id="menuPanel" role="listbox" aria-label="Lessons" hidden></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="center">
+    <div class="clip-head">
+      <p id="clipTheme" class="clip-theme"></p>
+      <h1 id="clipTitle" class="clip-title">Choose a lesson</h1>
+      <div id="cams" class="cams" hidden></div>
+      <div id="signals" class="signals"></div>
+    </div>
+
+    <div class="video-plane" id="videoPlane">
+      <video id="player" controls playsinline preload="auto"></video>
+      <canvas id="overlay" class="overlay" aria-hidden="true"></canvas>
+      <p id="layoutLabel" class="on-video-label">Finding the close call…</p>
+      <button type="button" class="play-overlay" id="playOverlay" hidden>
+        <span>Play clip</span>
+      </button>
+    </div>
+
+    <div class="scrub" id="scrub" aria-label="Close call">
+      <div class="scrub-track"></div>
+      <button type="button" id="closeMark" class="close-mark" hidden>Close call</button>
+    </div>
+
+    <section class="together" aria-labelledby="togetherTitle">
+      <div class="together-head">
+        <h2 id="togetherTitle">Talk about this</h2>
+        <div class="voice-actions">
+          <button type="button" class="voice-btn" id="talkBtn" aria-pressed="false">Talk</button>
+          <button type="button" class="voice-btn" id="voiceBtn" aria-pressed="true">Voice on</button>
+        </div>
+      </div>
+      <div id="mind" class="mind" role="listbox" aria-label="Memory map" aria-describedby="voiceHelp"></div>
+      <p id="voiceHelp" class="sr-only">Voice speaks as you, in the scene. Press Talk to answer. Ask what happened before to hear earlier moments.</p>
+      <p id="spoken" class="spoken">Press play. I'll tell you what I see, as me.</p>
+      <ol id="turns" class="turns" aria-label="Conversation"></ol>
+    </section>
+
+    <section class="guide" aria-label="Detected people and vehicles">
+      <p id="cast" class="cast"></p>
+      <div class="briefs">
+        <article>
+          <h2>Look</h2>
+          <p id="look"></p>
+        </article>
+        <article>
+          <h2>Do</h2>
+          <p id="move"></p>
+        </article>
+        <article>
+          <h2>Don't</h2>
+          <p id="avoid"></p>
+        </article>
+      </div>
+    </section>
+
+    <form class="ask-form" id="askForm">
+      <input id="askQ" type="text" autocomplete="off" placeholder="Tell me, or ask what happened before" />
+    </form>
+  </main>
+
+  <script src="/app/app.js?v=20"></script>
+</body>
+</html>
